@@ -1,0 +1,31 @@
+// Set the version number of this project
+version = '1.0'
+
+
+// The task to create the wrapper, remember to check in the
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+
+    // The following is the default for Downloading gradle
+    // distributionUrl=https\://services.gradle.org/distributions/gradle-2.3-bin.zip
+    // But we want to generate the wrapper with a local repository
+    distributionUrl="file:///home/zuvic/local/repo/gradle-2.3-all.zip"
+}
+
+subprojects {
+
+    // The base structure of all sub projects.
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+
+        // local repository if needed
+        //  maven {
+        //                url "http://localhost:8081/nexus/content/groups/public/"
+        //  }
+
+        mavenCentral()
+    }
+}

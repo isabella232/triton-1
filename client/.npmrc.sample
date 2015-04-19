@@ -1,0 +1,9 @@
+; copy this file a .npmrc
+
+; check with 'npm config get registry' the current value if needed.
+
+; when using sinpoia
+; registry=http://localhost:4873
+
+; when using nexus
+; registry=http://localhost:8081/nexus/content/groups/npm-all/

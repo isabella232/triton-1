@@ -1,0 +1,22 @@
+plugins {
+    id "org.akhikhl.gretty" version "1.2.0"
+    id "java"
+    id "war"
+}
+
+// need to rewrie the orts, because node should stay on port 9000
+gretty {
+    httpPort = 8080
+    debugPort = 8091
+    servicePort = 8092
+    statusPort = 8093
+    contextPath = '/'
+    // jvmArgs = ['-Xmx1024M', '-XX:PermSize=128M', '-XX:MaxPermSize=256M']
+    servletContainer = 'jetty9'
+}
+
+dependencies {
+    compile project(':service')
+    compile project(':client')
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+}
